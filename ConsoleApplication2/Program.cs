@@ -10,6 +10,37 @@ namespace ConsoleApplication2
     {
         static void Main(string[] args)
         {
+            string[] froots = new string[3];
+            froots[0] = "Joe";
+            froots[1] = "Oea";
+            froots[2] = "Carp";
+            UseArray(froots);
+
+            int[] weights = { 12, 124, 345, 345, 2 };
+            int sum = weights.Sum();
+            Console.WriteLine(sum);
+
+            try
+            {
+                string[] fruit = { "Apples", null, "Grapes" };
+                for (int i = 0; i <= fruit.Length; i++)
+                {
+                    if(fruit[i] == null)
+                    {
+                        throw (new ArgumentNullException());
+                    }
+                    Console.WriteLine(fruit[i]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Derp, of course I print!");
+            }
+
             bool isQuit = true;
             while (isQuit)
             {
@@ -80,6 +111,15 @@ namespace ConsoleApplication2
                             break;
                     }
                 }
+            }
+        }
+
+        static void UseArray(string[] values)
+        {
+            Console.WriteLine("Values");
+            foreach (var item in values)
+            {
+                Console.WriteLine(item);
             }
         }
 
